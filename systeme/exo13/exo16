@@ -1,0 +1,14 @@
+1- on crée la biblio dynamique libpair.so
+gcc -shared -o libpair.so pair.o impair.o
+
+2- on crée la biblio statique libpair.ar
+ar rcs libpair.a pair.o impair.o 
+
+3- on vérifie le contenu de libpair.a
+ar -t libpair.a 
+
+4- on compile spair.c dans un exe spair4 avec des liens dynamiques
+gcc -o spair4 spair.c -L. -lpair 
+
+5- on teste les liens dynamiques de spair4
+./spair4 7

@@ -1,0 +1,18 @@
+1-On crée les fichiers objets:
+gcc -c pair.c -o pair.o
+gcc -c impair.c -o impair.o
+
+2- On édite les liens avec le fichier spair.c pour construire l'exe spair2
+gcc -o spair2 spair.c pair.o impair.o
+
+3- on crée une bibliothèque statique libpair.a
+ar rcs libpair.a pair.o impair.o
+
+4- on vérifiele contenu de libpair.a
+ar -t libpair.a
+
+5- on édite les liens avec la biblio pour construire spair3
+gcc -o spair3 spair.c -L. -lpair
+
+6- on teste spair3
+./spair3 7
